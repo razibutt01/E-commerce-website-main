@@ -1,7 +1,7 @@
 import React from "react";
-import { ProductsPropsType, ProductType } from "../Components/componentTypes";
+import { HomePagePropsType, ProductType } from "../Components/componentTypes";
 import { GetStaticProps } from "next";
-import HomePage from "../Components/HomePage";
+import ProductsLayout from "../Components/ProductsLayout";
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
@@ -13,14 +13,16 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Home = ({ products }: ProductsPropsType) => {
+const Home = ({ products }: HomePagePropsType) => {
   const [homeProducts, setHomeProducts] = React.useState<ProductType[]>([]);
   React.useEffect(() => {
     if (products?.length) {
       setHomeProducts(products);
     }
   }, [products]);
-  return <>{products?.length ? <HomePage products={homeProducts} /> : null}</>;
+  return (
+    <>{products?.length ? <ProductsLayout products={homeProducts} /> : null}</>
+  );
 };
 
 export default Home;

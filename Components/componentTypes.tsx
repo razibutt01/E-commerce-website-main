@@ -17,3 +17,12 @@ export type ProductsPropsType = {
 export type DetailPropsType = {
   product: ProductType;
 };
+export type HomePagePropsType = {
+  products: ProductType[];
+};
+export type ProductsLayoutPropType = {
+  products: ProductType[];
+};
+export type LayoutPropType = {
+  children: React.ReactNode;
+};

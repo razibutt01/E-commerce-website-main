@@ -1,13 +1,13 @@
 import React from "react";
 import { Container } from "@mui/system";
 import { Box, MenuItem, Select, TextField, Typography } from "@mui/material";
-import { ProductsPropsType, ProductType } from "../Components/componentTypes";
+import { ProductsLayoutPropType, ProductType } from "./componentTypes";
 import { makeStyles } from "@mui/styles";
 import { Store } from "../utils/Store";
-import Products from "../Components/Products";
+import Products from "./Products";
 const useStyles = makeStyles({
   title: {
-    margin: "10px 0 10px 0",
+    margin: "10px  0",
     fontWeight: "bold",
   },
   box: {
@@ -23,8 +23,11 @@ const useStyles = makeStyles({
   category: {
     margin: "30px auto",
   },
+  switch: {
+    width: "30%",
+  },
 });
-export default function HomePage({ products }: ProductsPropsType) {
+export default function ProductsLayout({ products }: ProductsLayoutPropType) {
   const [searchTerm, setSearchTerm] = React.useState("");
   const [searchResults, setResults] = React.useState<ProductType[]>([]);
   const [category, setCategory] = React.useState<string>("");
@@ -91,7 +94,7 @@ export default function HomePage({ products }: ProductsPropsType) {
               Category:
             </Typography>
             <Select
-              sx={{ width: "30%" }}
+              className={classes.switch}
               value={category}
               onChange={(e) => categoryHandler(e.target.value)}
             >

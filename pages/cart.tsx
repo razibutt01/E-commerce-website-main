@@ -24,6 +24,7 @@ import Image from "next/image";
 import { ProductType } from "../Components/componentTypes";
 import { SelectChangeEvent } from "@mui/material/Select";
 import Head from "next/head";
+import ResponsiveDialog from "../Components/PopUp";
 
 export default function cart() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -134,13 +135,7 @@ export default function cart() {
                     </Typography>
                   </ListItem>
                   <ListItem>
-                    <NextLink href="/Done" passHref>
-                      <Link>
-                        <Button color="primary" variant="contained">
-                          Go to Checkout
-                        </Button>
-                      </Link>
-                    </NextLink>
+                    <ResponsiveDialog />
                   </ListItem>
                 </List>
               </Card>
